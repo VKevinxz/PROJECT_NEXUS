@@ -87,7 +87,6 @@ export default defineComponent({
       { text: 'Quiénes Somos', url: '#quienes-somos' },
       { text: 'Valores', url: '#valores' },
       { text: 'Servicios', url: '#servicios' },
-
       { text: 'Reconocimientos', url: '#reconocimientos' }
     ]
     
@@ -101,8 +100,9 @@ export default defineComponent({
       // Determine which section is currently visible
       const sections = document.querySelectorAll('section[id]')
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100
-        const sectionHeight = section.offsetHeight
+        const sectionElement = section as HTMLElement; // Type assertion to HTMLElement
+        const sectionTop = sectionElement.offsetTop - 100;
+        const sectionHeight = sectionElement.offsetHeight;
         if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
           activeSection.value = section.getAttribute('id') || ''
         }
