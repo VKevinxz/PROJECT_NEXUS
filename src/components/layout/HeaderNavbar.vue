@@ -53,7 +53,7 @@
         v-for="(link, index) in navLinks" 
         :key="index"
         :href="link.url" 
-        class="block py-2 px-3 mb-1 text-white font-medium hover:bg-[#FFAE14]/10 hover:text-[#FFAE14] rounded transition-colors duration-300 flex items-center"
+        class="flex py-2 px-3 mb-1 text-white font-medium hover:bg-[#FFAE14]/10 hover:text-[#FFAE14] rounded transition-colors duration-300 items-center"
         @click="mobileMenuOpen = false"
       >
         <span class="w-1.5 h-1.5 rounded-full bg-[#FFAE14] mr-2"></span>
