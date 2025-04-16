@@ -1,75 +1,68 @@
 <template>
   <div class="bg-[#E9E9E9]">
-    <!-- Header with Navigation Bar -->
-    <header class="w-full bg-white shadow-sm">
-      <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-        <!-- Logo on the left -->
-        <div class="flex items-center">
-          <img src="@/assets/logo.svg" alt="Logo" class="h-12" />
-        </div>
+    <!-- Header con Navegación -->
+    <HeaderNavbar />
 
-        <!-- Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-1">
-          <a
-            href="#quienes-somos"
-            class="px-3 py-2 text-[#393D46] font-medium hover:bg-[#FFAE14]/10 rounded"
-            >Quiénes Somos</a
-          >
-          <a
-            href="#servicios"
-            class="px-3 py-2 text-[#393D46] font-medium hover:bg-[#FFAE14]/10 rounded"
-            >Servicios</a
-          >
-          <a
-            href="#valores"
-            class="px-3 py-2 text-[#393D46] font-medium hover:bg-[#FFAE14]/10 rounded"
-            >Valores</a
-          >
-          <a
-            href="#reconocimientos"
-            class="px-3 py-2 text-[#393D46] font-medium hover:bg-[#FFAE14]/10 rounded"
-            >Reconocimientos</a
-          >
-          <a
-            href="#contacto"
-            class="px-3 py-2 text-[#393D46] font-medium hover:bg-[#FFAE14]/10 rounded"
-            >Contacto</a
-          >
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden bg-[#FFAE14] text-white px-3 py-1 rounded">Menu</button>
-      </div>
-    </header>
-
-    <!-- Hero Section with Background Image -->
+    <!-- Hero Section with X decoration background -->
     <section
-      class="relative w-full h-[500px] bg-cover bg-center"
-      style="
-        background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
-      "
+      id="top"
+      class="relative w-full min-h-[650px] bg-[#393D46] overflow-hidden pt-24"
     >
-      <div class="absolute inset-0 bg-[#393D46] bg-opacity-70 flex items-center justify-center">
-        <div class="text-center text-white">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">NEXOS Estrategias & Negocios</h1>
-          <p class="text-xl mb-6">Asesoría empresarial integral y especializada</p>
-          <div class="flex justify-center">
-            <div class="space-x-2">
-              <span class="inline-block w-2 h-2 rounded-full bg-[#FFAE14]"></span>
-              <span class="inline-block w-2 h-2 rounded-full bg-[#E7683A]"></span>
-              <span class="inline-block w-2 h-2 rounded-full bg-[#E86934]"></span>
+      <!-- X Decoration Background -->
+      <XDecoration 
+        color="#FFAE14" 
+        :thickness="100" 
+        :fullScreen="false" 
+        :zIndex="1"
+        :multipleXs="true"
+        :xsCount="8"
+        :showParticles="true"
+        :particlesCount="15"
+      />
+      
+      <div class="absolute inset-0 flex items-center justify-center z-10">
+        <div class="text-center text-white max-w-4xl px-4 animate-hero-content">
+          <span class="inline-block text-[#FFAE14] text-lg mb-2 tracking-widest fade-up">BIENVENIDOS A</span>
+          <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-glow fade-up">
+            NEXOS <span class="text-[#FFAE14]">Estrategias</span> & <span class="text-[#E7683A]">Negocios</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 opacity-90 font-light tracking-wide fade-up">
+            Asesoría empresarial integral y especializada
+          </p>
+          
+          <div class="mt-10 fade-up">
+            <a href="#contacto" class="inline-block bg-[#FFAE14] hover:bg-[#E7683A] text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 font-medium shadow-lg text-lg tracking-wide">
+              Solicitar información
+            </a>
+          </div>
+          
+          <div class="mt-12 flex justify-center fade-up">
+            <div class="space-x-3">
+              <span class="inline-block w-3 h-3 rounded-full bg-[#FFAE14] animate-pulse glow-dot"></span>
+              <span class="inline-block w-3 h-3 rounded-full bg-[#E7683A] animate-pulse glow-dot" style="animation-delay: 0.2s"></span>
+              <span class="inline-block w-3 h-3 rounded-full bg-[#E86934] animate-pulse glow-dot" style="animation-delay: 0.4s"></span>
             </div>
           </div>
         </div>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 animate-bounce" style="animation-duration: 2s">
+        <a href="#quienes-somos" class="flex flex-col items-center text-white opacity-70 hover:opacity-100 transition-opacity">
+          <span class="text-sm mb-1">Desliza</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
       </div>
     </section>
 
     <!-- Quienes Somos Section -->
     <section id="quienes-somos" class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46]">QUIÉNES SOMOS</h2>
+        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46] animate-fade-in">QUIÉNES SOMOS</h2>
 
-        <div class="max-w-4xl mx-auto mb-16">
+        <div class="max-w-4xl mx-auto mb-16 transform transition-all duration-500 hover:scale-105">
           <p class="text-lg text-[#393D46] mb-8 leading-relaxed text-center">
             NEXOS Estrategias & Negocios es una firma de expertos en Administración, Contabilidad,
             Ingeniería Industrial, Finanzas y Derecho. Brindamos consultoría y gestión empresarial
@@ -81,54 +74,17 @@
     </section>
 
     <!-- Valores Corporativos Section -->
-    <section id="valores" class="py-16 bg-[#E9E9E9]">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46]">Valores Corporativos</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div class="bg-white p-8 rounded-lg shadow-md flex flex-col">
-            <div class="text-[#FFAE14] mb-3 text-5xl font-serif">"</div>
-            <p class="text-[#393D46] mb-4 italic text-lg">
-              La disciplina es el puente entre las metas y el logro
-            </p>
-            <div class="mt-auto text-[#E7683A] font-semibold">- Jim Rohn</div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg shadow-md flex flex-col">
-            <div class="text-[#FFAE14] mb-3 text-5xl font-serif">"</div>
-            <p class="text-[#393D46] mb-4 italic text-lg">
-              La integridad es hacer lo correcto aunque nadie esté mirando
-            </p>
-            <div class="mt-auto text-[#E7683A] font-semibold">- Jim Stovall</div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg shadow-md flex flex-col">
-            <div class="text-[#FFAE14] mb-3 text-5xl font-serif">"</div>
-            <p class="text-[#393D46] mb-4 italic text-lg">
-              La innovación constante es la única forma de mantenerse competitivo a largo plazo
-            </p>
-            <div class="mt-auto text-[#E7683A] font-semibold">- Jorge Gonzales</div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg shadow-md flex flex-col">
-            <div class="text-[#FFAE14] mb-3 text-5xl font-serif">"</div>
-            <p class="text-[#393D46] mb-4 italic text-lg">
-              La confidencialidad es una virtud de la lealtad, la lealtad es la virtud de la
-              fidelidad
-            </p>
-            <div class="mt-auto text-[#E7683A] font-semibold">- Edwin Louis</div>
-          </div>
-        </div>
-      </div>
+    <section id="valores">
+      <ValoresCarrusel />
     </section>
 
     <!-- Servicios Section -->
     <section id="servicios" class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46]">NUESTROS SERVICIOS</h2>
+        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46] animate-fade-in">NUESTROS SERVICIOS</h2>
 
         <!-- Línea 1 -->
-        <div class="mb-16">
+        <div class="mb-16 animate-fade-in" style="animation-delay: 0.2s">
           <h3
             class="text-2xl font-bold mb-8 text-[#FFAE14] border-b-2 border-[#FFAE14] pb-2 max-w-4xl mx-auto"
           >
@@ -136,7 +92,7 @@
           </h3>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">01. Gestión Empresarial:</h4>
               <p class="text-[#393D46]">
                 ✓ Impulsamos tu negocio con estrategias eficientes, optimizando recursos y equipos
@@ -144,7 +100,7 @@
               </p>
             </div>
 
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">02. Gestión Laboral:</h4>
               <p class="text-[#393D46]">
                 ✓ Asesoría en relaciones laborales, costos salariales, inspecciones y seguridad en
@@ -152,7 +108,7 @@
               </p>
             </div>
 
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">
                 03. Gestión Fiscal y Tributaria:
               </h4>
@@ -162,7 +118,7 @@
               </p>
             </div>
 
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">04. Gestión Contable:</h4>
               <p class="text-[#393D46]">
                 ✓ Mantenemos tus finanzas en orden asegurando el cumplimiento normativo y la toma de
@@ -170,7 +126,7 @@
               </p>
             </div>
 
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">05. Asesoría Legal Empresarial:</h4>
               <p class="text-[#393D46]">
                 ✓ Nuestra firma está en capacidad de prestarle servicios en las áreas de derecho
@@ -182,7 +138,7 @@
         </div>
 
         <!-- Línea 2 -->
-        <div class="mb-16">
+        <div class="mb-16 animate-fade-in" style="animation-delay: 0.4s">
           <h3
             class="text-2xl font-bold mb-8 text-[#E7683A] border-b-2 border-[#E7683A] pb-2 max-w-4xl mx-auto"
           >
@@ -190,7 +146,7 @@
           </h3>
 
           <div class="max-w-4xl mx-auto">
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">
                 01. Sistema Integrado de Gestión (SIG):
               </h4>
@@ -204,7 +160,7 @@
         </div>
 
         <!-- Línea 3 -->
-        <div class="mb-16">
+        <div class="mb-16 animate-fade-in" style="animation-delay: 0.6s">
           <h3
             class="text-2xl font-bold mb-8 text-[#E86934] border-b-2 border-[#E86934] pb-2 max-w-4xl mx-auto"
           >
@@ -212,7 +168,7 @@
           </h3>
 
           <div class="max-w-4xl mx-auto">
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">01. Asesoría Legal Empresarial:</h4>
               <p class="text-[#393D46]">
                 ✓ Nuestra firma está en capacidad de prestarle servicios en las áreas del derecho
@@ -224,7 +180,7 @@
         </div>
 
         <!-- Línea 4 -->
-        <div class="mb-16">
+        <div class="mb-16 animate-fade-in" style="animation-delay: 0.8s">
           <h3
             class="text-2xl font-bold mb-8 text-[#FFAE14] border-b-2 border-[#FFAE14] pb-2 max-w-4xl mx-auto"
           >
@@ -232,7 +188,7 @@
           </h3>
 
           <div class="max-w-4xl mx-auto">
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md">
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
               <h4 class="text-xl font-bold mb-4 text-[#393D46]">
                 01. Tecnología de la Información 🌐:
               </h4>
@@ -247,7 +203,7 @@
         </div>
 
         <!-- Fundación Nexos -->
-        <div>
+        <div class="animate-fade-in" style="animation-delay: 1s">
           <h3
             class="text-2xl font-bold mb-8 text-[#E7683A] border-b-2 border-[#E7683A] pb-2 max-w-4xl mx-auto"
           >
@@ -255,13 +211,13 @@
           </h3>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md flex items-center">
-              <div class="text-4xl mr-4">🎨</div>
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md flex items-center transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <div class="text-4xl mr-4 animate-bounce" style="animation-duration: 2s">🎨</div>
               <p class="text-[#393D46] font-medium">¡Proyecto pintando un mundo de esperanzas!</p>
             </div>
 
-            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md flex items-center">
-              <div class="text-4xl mr-4">🐾</div>
+            <div class="bg-[#E9E9E9] p-6 rounded-lg shadow-md flex items-center transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <div class="text-4xl mr-4 animate-bounce" style="animation-duration: 2.5s; animation-delay: 0.5s">🐾</div>
               <p class="text-[#393D46] font-medium">¡Proyecto échame una pata!</p>
             </div>
           </div>
@@ -272,246 +228,128 @@
     <!-- Reconocimientos Section -->
     <section id="reconocimientos" class="py-16 bg-[#E9E9E9]">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46]">
+        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46] animate-fade-in">
           Nuestros Reconocimientos
         </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#FFAE14]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <!-- ISO 45001 - Ministerio de la Producción -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.1s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/ISO_Ministerio_de_la_Producción.png" alt="ISO 45001 - Ministerio de la Producción" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
               Certificación ISO 45001 (Ministerio de la Producción)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#FFAE14]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+          <!-- ISO 45001 - Bureau Veritas -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.2s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/iso_45001_Bureau.jpg" alt="ISO 45001 - Bureau Veritas" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
               Certificación ISO 45001 (Bureau Veritas Certification)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#FFAE14]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+          <!-- ProInnóvate -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.3s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/logo_proinnovate.png" alt="ProInnóvate" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
               Certificación ISO 45001 (Pro Innóvate)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#E7683A]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                />
-              </svg>
+          <!-- Free Plastic -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.4s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/free_plastic.png" alt="Free Plastic" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
               Empresa Libre de Plástico (Free Plastic)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#E7683A]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+          <!-- SUNAT -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.5s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/sunat_logo.png" alt="SUNAT" class="max-h-24 max-w-full object-contain">
             </div>
-            <p class="text-center text-[#393D46] font-medium">Buenos Contribuyentes (SUNAT)</p>
+            <p class="text-center text-[#393D46] font-medium">
+              Buenos Contribuyentes (SUNAT)
+            </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#E7683A]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
+          <!-- Cámara de Comercio -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.6s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/Camara_comercio_LIMA.jpg" alt="Cámara de Comercio de Lima" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
               Asociados: Cámara de Comercio de Lima (CCL)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#E86934]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
+          <!-- Ministerio de Trabajo -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.7s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/logo_trabajo.jpg" alt="Ministerio de Trabajo" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
               Premio Buenas Prácticas Laborales (Ministerio de Trabajo y Promoción del Empleo)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#E86934]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5A2.5 2.5 0 0020 5.5v-1.5"
-                />
-              </svg>
+          <!-- Ministerio del Ambiente - Huella de Carbono -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.8s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/ministerio_del_ambiente.png" alt="Ministerio del Ambiente" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
-              Empresa Ecoeficiente (Huella de Carbono - Perú)
+              Empresa Ecoeficiente (Ministerio del Ambiente)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#E86934]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                />
-              </svg>
+          <!-- Huella de Carbono Perú -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 0.9s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/huella_carbono.jpeg" alt="Huella de Carbono" class="max-h-24 max-w-full object-contain">
+            </div>
+            <p class="text-center text-[#393D46] font-medium">
+              Certificación Huella de Carbono (Perú)
+            </p>
+          </div>
+
+          <!-- Pontificia Universidad Católica del Perú -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 1s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/Pontificia_Catolica.jpg" alt="PUCP" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
               Certificación Programa 5'S (Pontificia Universidad Católica del Perú)
             </p>
           </div>
 
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#FFAE14]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                />
-              </svg>
-            </div>
-            <p class="text-center text-[#393D46] font-medium">Homologados: Alicorp / Carso</p>
-          </div>
-
-          <div class="bg-white p-4 rounded-lg shadow-md">
-            <div class="h-14 flex items-center justify-center text-[#FFAE14]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5A2.5 2.5 0 0020 5.5v-1.5"
-                />
-              </svg>
+          <!-- Homologados Alicorp -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 1.1s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/Alicorp_logo.png" alt="Alicorp" class="max-h-24 max-w-full object-contain">
             </div>
             <p class="text-center text-[#393D46] font-medium">
-              Empresa Ecoeficiente (Ministerio del Ambiente)
+              Homologados: Alicorp
+            </p>
+          </div>
+
+          <!-- Homologados Carso -->
+          <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center animate-fade-in" style="animation-delay: 1.2s">
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src="/imagenes/carso.webp" alt="Carso" class="max-h-24 max-w-full object-contain">
+            </div>
+            <p class="text-center text-[#393D46] font-medium">
+              Homologados: Carso
             </p>
           </div>
         </div>
@@ -521,13 +359,13 @@
     <!-- Contact Section -->
     <section id="contacto" class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46]">Información de Contacto</h2>
+        <h2 class="text-3xl font-bold text-center mb-12 text-[#393D46] animate-fade-in">Información de Contacto</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <!-- Contact Information -->
-          <div class="bg-[#E9E9E9] p-8 rounded-lg shadow-md">
+          <div class="bg-[#E9E9E9] p-8 rounded-lg shadow-md transform transition-all duration-500 hover:scale-105">
             <div class="space-y-6">
-              <div class="flex items-start">
+              <div class="flex items-start transition-transform duration-300 hover:translate-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6 text-[#FFAE14] mr-3"
@@ -548,7 +386,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start">
+              <div class="flex items-start transition-transform duration-300 hover:translate-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6 text-[#E7683A] mr-3"
@@ -570,7 +408,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start">
+              <div class="flex items-start transition-transform duration-300 hover:translate-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6 text-[#E86934] mr-3"
@@ -597,7 +435,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start">
+              <div class="flex items-start transition-transform duration-300 hover:translate-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6 text-[#FFAE14] mr-3"
@@ -619,7 +457,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start">
+              <div class="flex items-start transition-transform duration-300 hover:translate-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6 text-[#E7683A] mr-3"
@@ -643,7 +481,7 @@
 
             <h4 class="text-xl font-semibold mt-8 mb-4 text-[#393D46]">Síguenos en:</h4>
             <div class="flex space-x-4">
-              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A]">
+              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A] transition-colors duration-300 transform hover:scale-125">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -655,7 +493,7 @@
                   />
                 </svg>
               </a>
-              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A]">
+              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A] transition-colors duration-300 transform hover:scale-125">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -667,7 +505,7 @@
                   />
                 </svg>
               </a>
-              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A]">
+              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A] transition-colors duration-300 transform hover:scale-125">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -679,7 +517,7 @@
                   />
                 </svg>
               </a>
-              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A]">
+              <a href="#" class="text-[#FFAE14] hover:text-[#E7683A] transition-colors duration-300 transform hover:scale-125">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -695,7 +533,7 @@
           </div>
 
           <!-- Map Image Placeholder -->
-          <div class="h-full min-h-[400px] bg-[#E9E9E9] rounded-lg shadow-md overflow-hidden">
+          <div class="h-full min-h-[400px] bg-[#E9E9E9] rounded-lg shadow-md overflow-hidden transform transition-all duration-500 hover:scale-105">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249743.7236882099!2d-77.15345344353724!3d-12.02671962441933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c5f619ee3ec7%3A0x14206cb9cc452e4a!2sLima%2C%20Peru!5e0!3m2!1sen!2ses!4v1650137644266!5m2!1sen!2ses"
               width="100%"
@@ -712,28 +550,71 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#393D46] text-white py-8">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <p>&copy; 2025 NEXOS Estrategias & Negocios. Todos los derechos reservados.</p>
-          </div>
-
-          <div class="flex items-center">
-            <img src="@/assets/logo.svg" alt="Logo" class="h-8 mr-2 invert" />
-            <div class="text-sm">
-              <p>Una firma de expertos</p>
-              <p>Sirviendo desde 2025</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <FooterComponent />
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue'
+import HeaderNavbar from '@/components/layout/HeaderNavbar.vue'
+import FooterComponent from '@/components/layout/FooterComponent.vue'
+import ValoresCarrusel from '@/components/ValoresCarrusel.vue'
+import XDecoration from '@/components/XDecoration.vue'
+
+export default defineComponent({
   name: 'LandingPage',
-}
+  components: {
+    HeaderNavbar,
+    FooterComponent,
+    ValoresCarrusel,
+    XDecoration
+  }
+})
 </script>
+
+<style scoped>
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-hero-content {
+  animation: heroContent 1.2s ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.text-glow {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+}
+
+.glow-dot {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroContent {
+  0% { opacity: 0; transform: scale(0.9); }
+  30% { opacity: 0.5; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+</style>
